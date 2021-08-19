@@ -13,11 +13,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      locale: DevicePreview.locale(context), // Add the locale here
-      builder: DevicePreview.appBuilder, // Add the builder here
+      locale: DevicePreview.locale(context),
+      // Add the locale here
+      builder: DevicePreview.appBuilder,
+      // Add the builder here
       title: "Flutter Demo",
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.blueGrey,
       ),
       home: MyHomePage(),
     );
@@ -31,27 +33,25 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Flutter"),
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          onPressed: () {  },
-        ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {  },
+          title: Text("Flutter"),
+          leading: IconButton(
+            icon: Icon(Icons.menu),
+            onPressed: () {},
           ),
-          IconButton(
-            icon: Icon(Icons.more_vert),
-            onPressed: () {  },
-          ),
-        ],
-        flexibleSpace: Icon(
-          Icons.photo_camera,
-          size: 75.0,
-          color: Colors.white70,
-        ),
-      ),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.search),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.more_vert),
+              onPressed: () {},
+            ),
+          ],
+          flexibleSpace: Image.asset(
+            "assets/codex.png",
+            fit: BoxFit.cover,
+          )),
     );
   }
 }
