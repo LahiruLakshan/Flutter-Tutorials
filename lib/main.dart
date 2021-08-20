@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:device_preview/device_preview.dart';
@@ -20,56 +21,55 @@ class MyApp extends StatelessWidget {
       // Add the builder here
       title: "Flutter Demo",
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.pink,
+        brightness: Brightness.dark,
       ),
       home: MyHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
 
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text("Flutter"),
-          leading: IconButton(
-            icon: Icon(Icons.menu),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Flutter"),
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: () {},
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.search),
             onPressed: () {},
           ),
-          actions: [
-            IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: Icon(Icons.more_vert),
-              onPressed: () {},
-            ),
-          ],
-          flexibleSpace: Image.asset(
-            "assets/codex.png",
-            fit: BoxFit.cover,
+          IconButton(
+            icon: Icon(Icons.more_vert),
+            onPressed: () {},
           ),
-          bottom: TabBar(
-            tabs: [
-              Tab(icon: Icon(Icons.directions_car)),
-              Tab(icon: Icon(Icons.directions_transit)),
-              Tab(icon: Icon(Icons.directions_bike)),
-            ],
-            indicatorColor: Colors.white,
-          ),
+        ],
+        flexibleSpace: Image.asset(
+          "assets/codex.png",
+          fit: BoxFit.cover,
         ),
-        body: const TabBarView(
-          children: [
-            Icon(Icons.directions_car),
-            Icon(Icons.directions_transit),
-            Icon(Icons.directions_bike),
-          ],
+      ),
+      body: Container(
+        margin: EdgeInsets.all(20),
+        height: double.infinity,
+        width: double.infinity,
+        color: Colors.pink,
+        alignment: Alignment.bottomCenter,
+        child: Text(
+          "Flutter Tutorial",
+          style: TextStyle(
+            fontSize: 20.0
+          ),
         ),
       ),
     );
