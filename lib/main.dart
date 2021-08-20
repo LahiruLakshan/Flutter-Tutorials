@@ -13,13 +13,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       locale: DevicePreview.locale(context),
       // Add the locale here
       builder: DevicePreview.appBuilder,
       // Add the builder here
       title: "Flutter Demo",
       theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
+        primarySwatch: Colors.blue,
       ),
       home: MyHomePage(),
     );
@@ -31,8 +32,10 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
           title: Text("Flutter"),
           leading: IconButton(
             icon: Icon(Icons.menu),
@@ -51,7 +54,24 @@ class MyHomePage extends StatelessWidget {
           flexibleSpace: Image.asset(
             "assets/codex.png",
             fit: BoxFit.cover,
-          )),
+          ),
+          bottom: TabBar(
+            tabs: [
+              Tab(icon: Icon(Icons.directions_car)),
+              Tab(icon: Icon(Icons.directions_transit)),
+              Tab(icon: Icon(Icons.directions_bike)),
+            ],
+            indicatorColor: Colors.white,
+          ),
+        ),
+        body: const TabBarView(
+          children: [
+            Icon(Icons.directions_car),
+            Icon(Icons.directions_transit),
+            Icon(Icons.directions_bike),
+          ],
+        ),
+      ),
     );
   }
 }
