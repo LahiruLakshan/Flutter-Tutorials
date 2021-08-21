@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'second_screen.dart';
+import 'asynchronous.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -32,20 +32,19 @@ class _HomePageState extends State<HomePage> {
               "Flutter home screen",
               style: TextStyle(fontSize: 25.0),
             ),
+            RaisedButton(
+              onPressed: (){
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (_){
+                      return NetworkRequestState();
+                    }));
+
+                // Navigator.of(context).pushNamed('/second');
+              },
+              child: Icon(Icons.arrow_forward_rounded),
+            ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (_){
-                return SecondScreen("Lahiru");
-          }));
-
-          // Navigator.of(context).pushNamed('/second');
-        },
-        tooltip: "Increment",
-        child: Icon(Icons.add),
       ),
     );
   }
