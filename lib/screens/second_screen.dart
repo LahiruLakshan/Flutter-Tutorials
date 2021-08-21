@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'home_page.dart';
 
 class SecondScreen extends StatelessWidget {
-  late String text;
+  String? text;
 
   SecondScreen(String text) {
     this.text = text;
@@ -25,7 +25,7 @@ class SecondScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              text,
+              text!,
               style: TextStyle(fontSize: 25.0),
             ),
           ],
