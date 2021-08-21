@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
 
-void main() => runApp(
+void main() =>
+    runApp(
       DevicePreview(
         // enabled: !kReleaseMode,
         builder: (context) => MyApp(), // Wrap your app
@@ -34,6 +35,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  var items = List<String>.generate(100, (index) => "Item Number $index");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,61 +66,38 @@ class _MyHomePageState extends State<MyHomePage> {
         width: double.infinity,
         height: double.infinity,
         color: Colors.deepPurpleAccent,
-        // child: Column(
-        //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        //   crossAxisAlignment: CrossAxisAlignment.center,
+        // child: ListView(
+        //   scrollDirection: Axis.horizontal,
         //   children: [
         //     Text(
         //       "Text 01",
-        //       style: TextStyle(fontSize: 30, color: Colors.blue),
+        //       style: Theme.of(context).textTheme.display1,
         //     ),
-        //     Text(
-        //       "Text 02",
-        //       style: TextStyle(fontSize: 30, color: Colors.red),
+        //     Container(
+        //       height: 200,
+        //       width: 200,
+        //       color: Colors.purple,
         //     ),
-        //     Text(
-        //       "Text 03",
-        //       style: TextStyle(fontSize: 30, color: Colors.green),
+        //     Container(
+        //       height: 200,
+        //       width: 200,
+        //       color: Colors.deepOrange,
+        //     ),
+        //     Container(
+        //       height: 200,
+        //       width: 200,
+        //       color: Colors.yellow,
         //     ),
         //   ],
         // ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              "Text 01",
-              style: TextStyle(fontSize: 20, color: Colors.blue, backgroundColor: Colors.white),
-            ),
-            Text(
-              "Text 02",
-              style: TextStyle(fontSize: 20, color: Colors.red, backgroundColor: Colors.white),
-            ),
-            Text(
-              "Text 03",
-              style: TextStyle(fontSize: 20, color: Colors.green, backgroundColor: Colors.white),
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  "Text 04",
-                  style: TextStyle(fontSize: 20, color: Colors.yellow, backgroundColor: Color.fromRGBO(
-                      255, 0, 169, 1.0)),
-                ),
-                Text(
-                  "Text 05",
-                  style: TextStyle(fontSize: 20, color: Colors.purple, backgroundColor: Color.fromRGBO(
-                      87, 255, 0, 1.0)),
-                ),
-                Text(
-                  "Text 06",
-                  style: TextStyle(fontSize: 20, color: Colors.deepOrange, backgroundColor: Colors.white),
-                ),
-              ],
-            ),
-          ],
+        child: ListView.builder(
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              title: Text(items[index]),
+            );
+          },
+
         ),
       ),
     );
