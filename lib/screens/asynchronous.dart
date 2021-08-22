@@ -9,23 +9,24 @@ class NetworkRequestState extends StatefulWidget {
 
 class _NetworkRequestStateState extends State<NetworkRequestState> {
 
-  void getData() async{
+  Future<String> getData() async{
     String email = await Future.delayed(Duration(seconds: 3), (){
       return "lahiru@gmail.com";
     });
 
-    String bio = await Future.delayed(Duration(seconds: 2), (){
-      return "name: lahiru, age: 22";
-    });
+    return email;
 
-    print(email + " - " + bio);
   }
 
+  Future<void> getNetworkRequest() async {
+    print( await getData());
+  }
 
   @override
   void initState(){
     super.initState();
-    getData();
+    getNetworkRequest();
+    print("other code");
   }
 
   @override

@@ -22,14 +22,14 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Flutter Tutorial"),
+        title: Text("Future API"),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Flutter home screen",
+              "Network Request",
               style: TextStyle(fontSize: 25.0),
             ),
             RaisedButton(
@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
 
                 // Navigator.of(context).pushNamed('/second');
               },
-              child: Icon(Icons.arrow_forward_rounded),
+              child: Text("Send Network Request"),
             ),
           ],
         ),
